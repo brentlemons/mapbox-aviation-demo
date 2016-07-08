@@ -29,24 +29,24 @@
         map.addSource('airports', sources.airports);
         map.addLayer({
           'id': 'airports',
-          // 'type': 'symbol',
-          'type': 'circle',
+          'type': 'symbol',
+          // 'type': 'circle',
           'source': 'airports',
           'interactive': true,
-          // 'layout': {
-          //     'icon-image': '{icon}',
-          //     'icon-allow-overlap': true,
-          //     // 'icon-ignore-placement': true,
-          //     // 'text-field': '{id}',
-          //     // 'text-optional': true,
-          //     // 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-          //     // 'text-offset': [0, 0.6],
-          //     // 'text-anchor': 'top'
+          'layout': {
+              'icon-image': '{icon}',
+              'icon-allow-overlap': true,
+              // 'icon-ignore-placement': true,
+              // 'text-field': '{id}',
+              // 'text-optional': true,
+              // 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+              // 'text-offset': [0, 0.6],
+              // 'text-anchor': 'top'
           // },
-          'paint': {
-              'circle-radius': 6,
-              'circle-color': '#f00',
-              'circle-opacity': 0.4
+          // 'paint': {
+          //     'circle-radius': 6,
+          //     'circle-color': '#f00',
+          //     'circle-opacity': 0.4
           }
         });
       });

@@ -31,7 +31,8 @@ function toGeojson(airport) {
       name: airport.name,
       city: airport.city,
       state: airport.state,
-      elevation: airport.geography.elevation
+      elevation: airport.geography.elevation,
+      icon: 'landplane-civil-tower'
     }
   };
 }
