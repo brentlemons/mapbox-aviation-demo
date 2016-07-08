@@ -3,40 +3,40 @@
 var app = require('../../../server');
 import request from 'supertest';
 
-var newThing;
+var newAirport;
 
-describe('Thing API:', function() {
+describe('Airport API:', function() {
 
-  describe('GET /api/things', function() {
-    var things;
+  describe('GET /api/airports', function() {
+    var airports;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things')
+        .get('/api/airports')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if (err) {
             return done(err);
           }
-          things = res.body;
+          airports = res.body;
           done();
         });
     });
 
     it('should respond with JSON array', function() {
-      expect(things).to.be.instanceOf(Array);
+      expect(airports).to.be.instanceOf(Array);
     });
 
   });
 
-  describe('POST /api/things', function() {
+  describe('POST /api/airports', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/api/things')
+        .post('/api/airports')
         .send({
-          name: 'New Thing',
-          info: 'This is the brand new thing!!!'
+          name: 'New Airport',
+          info: 'This is the brand new airport!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -44,55 +44,55 @@ describe('Thing API:', function() {
           if (err) {
             return done(err);
           }
-          newThing = res.body;
+          newAirport = res.body;
           done();
         });
     });
 
-    it('should respond with the newly created thing', function() {
-      expect(newThing.name).to.equal('New Thing');
-      expect(newThing.info).to.equal('This is the brand new thing!!!');
+    it('should respond with the newly created airport', function() {
+      expect(newAirport.name).to.equal('New Airport');
+      expect(newAirport.info).to.equal('This is the brand new airport!!!');
     });
 
   });
 
-  describe('GET /api/things/:id', function() {
-    var thing;
+  describe('GET /api/airports/:id', function() {
+    var airport;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things/' + newThing._id)
+        .get('/api/airports/' + newAirport._id)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if (err) {
             return done(err);
           }
-          thing = res.body;
+          airport = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      thing = {};
+      airport = {};
     });
 
-    it('should respond with the requested thing', function() {
-      expect(thing.name).to.equal('New Thing');
-      expect(thing.info).to.equal('This is the brand new thing!!!');
+    it('should respond with the requested airport', function() {
+      expect(airport.name).to.equal('New Airport');
+      expect(airport.info).to.equal('This is the brand new airport!!!');
     });
 
   });
 
-  describe('PUT /api/things/:id', function() {
-    var updatedThing;
+  describe('PUT /api/airports/:id', function() {
+    var updatedAirport;
 
     beforeEach(function(done) {
       request(app)
-        .put('/api/things/' + newThing._id)
+        .put('/api/airports/' + newAirport._id)
         .send({
-          name: 'Updated Thing',
-          info: 'This is the updated thing!!!'
+          name: 'Updated Airport',
+          info: 'This is the updated airport!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -100,27 +100,27 @@ describe('Thing API:', function() {
           if (err) {
             return done(err);
           }
-          updatedThing = res.body;
+          updatedAirport = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      updatedThing = {};
+      updatedAirport = {};
     });
 
-    it('should respond with the updated thing', function() {
-      expect(updatedThing.name).to.equal('Updated Thing');
-      expect(updatedThing.info).to.equal('This is the updated thing!!!');
+    it('should respond with the updated airport', function() {
+      expect(updatedAirport.name).to.equal('Updated Airport');
+      expect(updatedAirport.info).to.equal('This is the updated airport!!!');
     });
 
   });
 
-  describe('DELETE /api/things/:id', function() {
+  describe('DELETE /api/airports/:id', function() {
 
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/airports/' + newAirport._id)
         .expect(204)
         .end((err, res) => {
           if (err) {
@@ -130,9 +130,9 @@ describe('Thing API:', function() {
         });
     });
 
-    it('should respond with 404 when thing does not exist', function(done) {
+    it('should respond with 404 when airport does not exist', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/airports/' + newAirport._id)
         .expect(404)
         .end((err, res) => {
           if (err) {

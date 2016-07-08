@@ -4,37 +4,101 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
+import Airport from '../api/airport/airport.model';
 
-Thing.find({}).remove()
+Airport.find({}).remove()
   .then(() => {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-             'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-             'Stylus, Sass, and Less.'
+    Airport.create({
+      _id: 'ATL',
+      iata_id: 'KATL',
+      name: 'Hartsfield - Jackson Atlanta International Airport',
+      city: 'Atlanta',
+      state: 'GA',
+      geography: {
+        loc: { 
+          type: 'Point',
+          coordinates: [-84.4278640, 33.6366996]
+        },
+        elevation: 312.8
+      }
     }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-             'AngularJS, and Node.'
+      _id: 'BOS',
+      iata_id: 'KBOS',
+      name: 'General Edward Lawrence Logan International Airport',
+      city: 'Boston',
+      state: 'MA',
+      geography: {
+        loc: { 
+          type: 'Point',
+          coordinates: [-71.0063889, 42.3629444]
+        },
+        elevation: 5.8
+      }
     }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep ' +
-             'tests alongside code. Automatic injection of scripts and ' +
-             'styles into your index.html'
+      _id: 'DCA',
+      iata_id: 'KDCA',
+      name: 'Ronald Reagan Washington National Airport',
+      city: 'Washington',
+      state: 'DC',
+      geography: {
+        loc: { 
+          type: 'Point',
+          coordinates: [-77.0377222, 38.8514444]
+        },
+        elevation: 4.3
+      }
     }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more ' +
-             'code reusability and maximum scalability'
+      _id: 'DFW',
+      iata_id: 'KDFW',
+      name: 'Dallas-Fort Worth International Airport',
+      city: 'Dallas-Fort Worth',
+      state: 'TX',
+      geography: {
+        loc: { 
+          type: 'Point',
+          coordinates: [-97.0376949, 32.8972316]
+        },
+        elevation: 185.0
+      }
     }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript ' +
-             'payload, minifies your scripts/css/images, and rewrites asset ' +
-             'names for caching.'
+      _id: 'LAX',
+      iata_id: 'KLAX',
+      name: 'Los Angeles International Airport',
+      city: 'Los Angeles',
+      state: 'CA',
+      geography: {
+        loc: { 
+          type: 'Point',
+          coordinates: [-118.4071129, 33.9425049]
+        },
+        elevation: 38.9
+      }
     }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-             'and openshift subgenerators'
+      _id: 'ORD',
+      iata_id: 'KORD',
+      name: "Chicago O'Hare International Airport",
+      city: 'Chicago',
+      state: 'IL',
+      geography: {
+        loc: { 
+          type: 'Point',
+          coordinates: [-87.9080059, 41.9773201]
+        },
+        elevation: 207.3
+      }
+    }, {
+      _id: 'SFO',
+      iata_id: 'KSFO',
+      name: 'San Francisco International Airport',
+      city: 'San Francisco',
+      state: 'CA',
+      geography: {
+        loc: { 
+          type: 'Point',
+          coordinates: [-122.3754167, 37.6188056]
+        },
+        elevation: 4.0
+      }
     });
   });
 
