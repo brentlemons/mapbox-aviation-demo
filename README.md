@@ -31,7 +31,7 @@ You're in business!
 
 ## About this project
 
-This is a simple project to demonstrate the ability to use [mapbox-gl-js][https://github.com/mapbox/mapbox-gl-js] in an angular app. It seeds a few airports into mongo and makes them accessible through `/api/airports`. The client app has a service that calls the endpoint and plots the geojson response.
+This is a simple project to demonstrate the ability to use [mapbox-gl-js](https://github.com/mapbox/mapbox-gl-js) in an angular app. It seeds a few airports into mongo and makes them accessible through `/api/airports`. The client app has a service that calls the endpoint and plots the geojson response.
 
 ### Todo:
 
