@@ -10,10 +10,13 @@
     }
 
     $onInit() {
-      this.$http.get('/api/things')
-        .then(response => {
-          this.awesomeThings = response.data;
-        });
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYnJlbnRsZW1vbnMiLCJhIjoiOWxVeThWbyJ9.iGiQ6rMvAjDXVpyzjRabSg';
+      var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/brentlemons/ciqd5imkt0001d1ngbqqzf1bh',
+          center: [-98.58333333, 39.83333333],
+          zoom: 3
+      });
     }
 
     addThing() {

@@ -1,18 +1,41 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">mapbox-aviation-demo</a>
+<div ng-controller="NavbarController as ctrl">
+  <div class="sidebar-wrapper">
+    <div id="border-filler"  ng-click="toggleIt()">
+      &nbsp
     </div>
-    <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li ng-repeat="item in nav.menu" ui-sref-active="active">
-            <a ui-sref="{{item.state}}">{{item.title}}</a>
+    <div>
+      <ul class="sidebar-nav">
+        <li ng-repeat="item in menu" ng-class="{'active': item.active}" ng-click="item.toggle()">
+          <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-stack-1x" ng-class="item.icon" ></i></span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="sidebar-wrapper tier-2" id="mapping-menu" ng-class="activeMenu === 'mapping' ? 'active-menu' : 'collapse'">
+    <div class="container">
+      <div class="filters">
+        <div class="checkboxes">
+          <fieldset ng-repeat="filter in filters">
+            <legend class="section-header">{{filter.label}}</legend>
+            <ul>
+              <li ng-repeat="item in filter.terms">
+                <input type="checkbox" name="{{filter.field}}_{{$index}}" id="{{filter.field}}_{{$index}}" value="{{item.key}}" ng-disabled="{{filter.strategy != 'or' && item.doc_count == 0}}" ng-model="item.checked" ng-change="selectedItems()"><label for="{{filter.field}}_{{$index}}">{{item.key}} ({{item.doc_count}})</label>
+              </li>
+            </ul>
+            <div ng-if="filter.range">
+              <rzslider rz-slider-floor="filter.range.floor" rz-slider-ceil="filter.range.ceil" rz-slider-model="filter.range.min" rz-slider-high="filter.range.max" rz-slider-step="{{ filter.range.step }}" rz-slider-on-end="selectedItems()"></rzslider>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <ul class="sidebar-nav nav-stacked" id="menu">
+        <li>
+          <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-map fa-stack-1x "></i></span></a>
         </li>
       </ul>
     </div>

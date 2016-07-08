@@ -1,0 +1,22 @@
+// colors
+
+$color-1: #383838; // Mine Shaft
+$color-2: #7b9d6f; // Highland
+$color-3: #ffffff; // White
+$color-4: #f8f8f8; // Alabaster
+
+$accent-color: #ee7642; // Orange
+
+// fonts 
+
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,300);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300);
+@import url(https://fonts.googleapis.com/css?family=Archivo+Narrow);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,300,700);
+
+$primary-font: 'Dosis', sans-serif;
+$secondary-font: 'Playfair Display', serif;
+
+// dimensions
+
+$left-nav-width: 60px;

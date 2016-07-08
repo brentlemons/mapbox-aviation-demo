@@ -7,6 +7,16 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
  * App-wide Styles
  */
 
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -16,6 +26,187 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 
 // Component styles are injected through grunt
 /* inject:scss */
-@import 'admin/admin.scss';
-@import 'main/main.scss';
+@import 'main/main';
+@import 'partials/variables';
+@import '../components/modal/modal';
 /* endinject */
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.navbar-default {
+  background-color: #fff;
+  border-color: #ee7642;
+}
+
+#border-filler {
+  border-color: #ee7642;
+  border-width: 0 2px 0 0;
+  border-style: solid;
+  height: 100%;
+  width: 60px;
+}
+
+  .sidebar {
+              font-family: $primary-font;
+            font-size: 14px;
+            color: #111;
+            font-weight: 300;
+
+    position: fixed;
+    top: 0px;
+    bottom: 150px;
+    right: 0;
+    z-index: 1000;
+    display: block;
+/*    padding: 20px; */
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #e9e9e9;
+//    border-right: 1px solid #eee;
+    /*background-color: rgba(50, 50, 50, 0.7);*/
+    border-bottom-left-radius: 25px;
+    border-bottom: 4px solid #ee7642;
+    border-left: 4px solid #ee7642;
+
+  }
+
+/* make sidebar nav vertical */ 
+.sidebar-wrapper {
+    z-index: 1000;
+    position: absolute; 
+    left: 60px;
+    width: 0;
+    height: 100%;
+    margin-left: -60px;
+    overflow-y: auto;
+    background: #313435;
+    //border-color: #a94442;
+    //border-width: 0 1px 0 0;
+    //border-style: solid;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.databar-wrapper {
+    z-index: 1000;
+    position: absolute; 
+    right: 0px;
+    width: 350px;
+    height: 100%;
+    //margin-right: -60px;
+    overflow-y: auto;
+    background: #fff;
+    border-color: #a94442;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#wrapper.toggled #sidebar-wrapper {
+    width: 60px;
+}
+ 
+.fixed-brand{
+//    width: auto;
+}
+/* Sidebar Styles */
+ 
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: $left-nav-width;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 2px;
+}
+
+
+.sidebar-nav-tier-2 {
+}
+ 
+.sidebar-nav li {
+    line-height: 60px;
+}
+ 
+.sidebar-nav li a {
+    display: block;
+    color: #999999;
+}
+ 
+.sidebar-nav li a:hover {
+    color: #666;
+    background: rgba(255,255,255,0.2);
+}
+ 
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+//    text-decoration: none;
+}
+ 
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+ 
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+ 
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+ 
+@media(min-width:768px) {
+    .sidebar-wrapper {
+        width: 60px;
+    }
+  .tier-2 {
+    left: 120px;
+    width: 300px;
+    background-color: #76b4be;
+    border-color: #ee7642;
+    border-width: 0 4px 0 0;
+    border-style: solid;
+  }
+}
+
+.sidebar-nav > li.active > a {
+  color: #000;
+}
+.sidebar-nav > li.active > a > span {
+  background-color: #76b4be;
+  border-color: #ee7642;
+  border-width: 0 0 0 4px;
+  border-style: solid;
+}
+.sidebar-nav > li > a > span {
+  width: 100%;
+}
+
+.profile-image  {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  position: relative;
+  bottom: 0px;
+}
+
+.img-circle {
+  border-color: #999;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.pin-bottom {
+  position: absolute;
+  bottom: 0px;
+  height: 90px;
+}
+
