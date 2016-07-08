@@ -2,6 +2,8 @@
 
 ## Quick and simple heroku guide
 
+This is currently running at [https://mapbox-aviation-demo.herokuapp.com/](https://mapbox-aviation-demo.herokuapp.com/).
+
 (Note: There is an issue with `yo angular-fullstack:heroku`. Follow these steps instead.)
 
 1. `git clone https://github.com/brentlemons/mapbox-aviation-demo.git`
