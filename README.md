@@ -1,5 +1,46 @@
 # mapbox-aviation-demo
 
+## Quick and simple heroku guide
+
+(Note: There is an issue with `yo angular-fullstack:heroku`. Follow these steps instead.)
+
+1. `git clone https://github.com/brentlemons/mapbox-aviation-demo.git`
+
+2. `cd mapbox-aviation-demo`
+
+3. `npm install`
+
+4. `bower install`
+
+5. `heroku create <your-creative-name>`
+
+6. `heroku addons:create mongolab` (`--app <your-creative-name>`, if necessary)
+
+7. `gulp build`
+
+8. `cd dist`
+
+9. `git init`
+
+10. `heroku git:remote -a <your-creative-name>`
+
+11. `gulp buildcontrol:heroku`
+
+You're in business!
+
+
+## About this project
+
+This is a simple project to demonstrate the ability to use [mapbox-gl-js][https://github.com/mapbox/mapbox-gl-js] in an angular app. It seeds a few airports into mongo and makes them accessible through `/api/airports`. The client app has a service that calls the endpoint and plots the geojson response.
+
+### Todo:
+
+- Add click listener to each geojson feature
+- Add weather service to grab current METAR and TAF for the requested airport
+- On click, call the weather service and display response on screen (modal or sidebar)
+- ??Airport filtering??
+
+
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.7.5.
 
 ## Getting Started
@@ -30,4 +71,3 @@ Run `grunt build` for building and `grunt serve` for preview.
 ## Testing
 
 Running `npm test` will run the unit tests with karma.
-# mapbox-aviation-demo
